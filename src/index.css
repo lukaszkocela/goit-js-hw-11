@@ -46,7 +46,7 @@ img {
   cursor: pointer;
 }
 
-.photo-gallery {
+.gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
