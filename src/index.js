@@ -65,18 +65,14 @@ const showPictures = () => {
   createSearchParams()
     .then(pictures => {
       const totalHits = pictures.data.total;
-
       if (pictures.data.hits.length === 0) throw new Error();
-
       totalHits > 40
         ? (showMoreEl.style.visibility = 'visible')
         : (showMoreEl.style.visibility = 'hidden');
-
       galleryEl.innerHTML = drawNewPicture(pictures);
-
       Notiflix.Notify.info(`Hooray! We found ${totalHits} images.`);
-
       let lightbox = new SimpleLightbox('.gallery a');
+      lightbox.refresh();
     })
     .catch(error => {
       Notiflix.Notify.failure(
@@ -96,6 +92,7 @@ const showMorePictures = () => {
     galleryEl.insertAdjacentHTML('beforeend', drawNewPicture(pictures));
 
     let lightbox = new SimpleLightbox('.gallery a');
+    lightbox.refresh();
 
     const { height: cardHeight } = document
       .querySelector('.gallery')
@@ -108,8 +105,8 @@ const showMorePictures = () => {
   });
 };
 
-searchBtnEl.addEventListener('click', e => {
-  e.preventDefault();
+searchBtnEl.addEventListener('click', event => {
+  event.preventDefault();
   page = 1;
   showPictures();
 });
