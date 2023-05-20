@@ -8,7 +8,7 @@ const searchBtnEl = document.querySelector('#search-form button');
 const galleryEl = document.querySelector('.gallery');
 const showMoreEl = document.querySelector('.load-more');
 
-const API_KEY = 'x';
+const API_KEY = '35824715-2d66b768577de707402fcf159';
 const API_URL = 'https://pixabay.com/api/';
 
 showMoreEl.style.visibility = 'hidden';
